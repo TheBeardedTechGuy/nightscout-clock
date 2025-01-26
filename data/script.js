@@ -1,3 +1,4 @@
+// included from index.html
 
 (() => {
     'use strict'
@@ -27,6 +28,8 @@
 
     addButtonsHandlers();
 
+    addAdditionalWifiTypeHandler();
+
     loadConfiguration();
 
     function addButtonsHandlers() {
@@ -35,6 +38,44 @@
         $('#btn_urgent_low_alarm_try').on('click', tryAlarm);
         $('#btn_load_limits_from_ns').on('click', loadNightscoutData);
         $("#btn_save").on('click', validateAndSave);
+        $('#additional_wifi_enable').on('change', toggleAdditionalWifiSettings);
+        $('#custom_hostname_enable').on('change', toggleCustomHostnameSettings);
+
+    }
+
+    function addAdditionalWifiTypeHandler() {
+        $('#additional_wifi_type').on('change', function () {
+            var wifiType = $(this).val();
+            switch (wifiType) {
+                case "wpa_psk":
+                    $('#additional_ssid_cell').removeClass('d-none');
+                    $('#additional_wifi_password_cell').removeClass('d-none');
+                    $('#additional_wifi_username_cell').addClass('d-none');
+                    break;
+                case "wpa_eap":
+                    $('#additional_ssid_cell').removeClass('d-none');
+                    $('#additional_wifi_password_cell').removeClass('d-none');
+                    $('#additional_wifi_username_cell').removeClass('d-none');
+                    break;
+                default:
+                    $('#additional_ssid_cell').addClass('d-none');
+                    $('#additional_wifi_password_cell').addClass('d-none');
+                    $('#additional_wifi_username_cell').addClass('d-none');
+                    break;
+
+            };
+        });
+    }
+
+    function toggleAdditionalWifiSettings() {
+        const isChecked = $('#additional_wifi_enable').is(':checked');
+        $('#additional_wifi_settings').toggleClass('d-none', !isChecked);
+        $('#additional_wifi_type').trigger('change');
+    }
+
+    function toggleCustomHostnameSettings() {
+        const isChecked = $('#custom_hostname_enable').is(':checked');
+        $('#custom_hostname_settings').toggleClass('d-none', !isChecked);
     }
 
     function tryAlarm(e) {
@@ -420,6 +461,19 @@
         setAlarmDataToJson(json, 'low');
         setAlarmDataToJson(json, 'urgent_low');
 
+        // Additional WiFi
+        json['additional_wifi_enable'] = $('#additional_wifi_enable').is(':checked');
+        json['additional_wifi_type'] = $('#additional_wifi_type').val();
+        json['additional_ssid'] = $('#additional_ssid').val();
+        json['additional_wifi_username'] = $('#additional_wifi_username').val();
+        json['additional_wifi_password'] = $('#additional_wifi_password').val();
+
+        // Custom hostname
+        json['custom_hostname_enable'] = $('#custom_hostname_enable').is(':checked');
+        json['custom_hostname'] = $('#custom_hostname').val();
+
+
+
         return JSON.stringify(json);
     }
 
@@ -683,6 +737,19 @@
         loadAlarmDataFromJson(json, 'high');
         loadAlarmDataFromJson(json, 'low');
         loadAlarmDataFromJson(json, 'urgent_low');
+
+        // Additional WiFi
+        $('#additional_wifi_enable').prop('checked', json['additional_wifi_enable']);
+        $('#additional_wifi_type').val(json['additional_wifi_type']);
+        $('#additional_ssid').val(json['additional_ssid']);
+        $('#additional_wifi_username').val(json['additional_wifi_username']);
+        $('#additional_wifi_password').val(json['additional_wifi_password']);
+        toggleAdditionalWifiSettings();
+
+        // Custom hostname
+        $('#custom_hostname_enable').prop('checked', json['custom_hostname_enable']);
+        $('#custom_hostname').val(json['custom_hostname']);
+        toggleCustomHostnameSettings();
     }
 
     function loadAlarmDataFromJson(json, alarmType) {
@@ -712,5 +779,7 @@
         $('#toast_failure_message').text(message);
         $('#toast_failure').toast('show');
     }
+
+
 
 })()
