@@ -5,6 +5,7 @@
 #include "SettingsManager.h"
 #include "ServerManager.h"
 #include "globals.h"
+#include "Settings.h"
 
 #include <list>
 
@@ -88,7 +89,7 @@ void BGDisplayManager_::maybeRrefreshScreen(bool force) {
         if ( force || timeInfo.tm_sec == 0 && currentEpoch > lastRefreshEpoch || currentEpoch - lastRefreshEpoch > 60) {
             lastRefreshEpoch = currentEpoch;
             if (displayedReadings.size() > 0) {
-                bool dataIsOld = displayedReadings.back().getSecondsAgo() > 60 * BG_DATA_OLD_OFFSET_MINUTES;
+                bool dataIsOld = displayedReadings.back().getSecondsAgo() > 60 * custom_nodatatimer;
                 currentFace->showReadings(displayedReadings, dataIsOld);
             } else {
                 currentFace->showNoData();
