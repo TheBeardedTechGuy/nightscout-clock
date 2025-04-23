@@ -1,3 +1,6 @@
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
 #include <Arduino.h>
 #include "enums.h"
 
@@ -47,3 +50,5 @@ class Settings {
     bool custom_nodatatimer_enable;
     String custom_nodatatimer;
 };
+
+#endif // SETTINGS_H
