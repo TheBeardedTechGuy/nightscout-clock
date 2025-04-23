@@ -24,7 +24,7 @@
 2. Wait a few days for the delivery
 3. Unpack, turn on (press on `<` and `>` buttons for a few seconds)
 4. Connect the USB-C cable (comes with the clock) to your computer
-5. Go to the [installation page](https://ktomy.github.io/nightscout-clock/)
+5. Go to the [installation page](https://TheBeardedTechGuy.github.io/nightscout-clock/)
 6. Follow the instructions
 7. Once the clock installed, take out your phone and join `nsclock` wi-fi network. Then go to `http://192.168.4.1/`
 8. Set up your device, provide the Wi-Fi network details, your Dexcom or Nightscout credentials, glucose warning limits and other parameters
