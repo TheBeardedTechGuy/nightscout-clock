@@ -17,6 +17,10 @@ BGAlarmManager_ &BGAlarmManager_::getInstance() {
 // Initialize the global shared instance
 BGAlarmManager_ &bgAlarmManager = bgAlarmManager.getInstance();
 
+// Initialize the global shared instance
+Settings settings; 
+
+
 #ifdef DEBUG_ALARMS
 
 int debounceTicks = 0;
@@ -126,7 +130,7 @@ bool isInSilentInterval(String silenceInterval) {
 
 void BGAlarmManager_::tick() {
     auto glucoseReading = bgDisplayManager.getLastDisplayedGlucoseReading();
-    if (glucoseReading == nullptr || glucoseReading->getSecondsAgo() > custom_nodatatimer * 60) {
+    if (glucoseReading == nullptr || glucoseReading->getSecondsAgo() > settings.custom_nodatatimer.toInt() * 60) {
         activeAlarm = NULL;
 
 #ifdef DEBUG_ALARMS
