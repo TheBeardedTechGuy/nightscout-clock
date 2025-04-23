@@ -4,6 +4,7 @@
 #include "globals.h"
 #include "ServerManager.h"
 #include <PeripheryManager.h>
+#include "Settings.h"
 
 #define ALARM_REPEAT_INTERVAL_SECONDS 300
 
@@ -125,7 +126,7 @@ bool isInSilentInterval(String silenceInterval) {
 
 void BGAlarmManager_::tick() {
     auto glucoseReading = bgDisplayManager.getLastDisplayedGlucoseReading();
-    if (glucoseReading == nullptr || glucoseReading->getSecondsAgo() > BG_DATA_OLD_OFFSET_MINUTES * 60) {
+    if (glucoseReading == nullptr || glucoseReading->getSecondsAgo() > custom_nodatatimer * 60) {
         activeAlarm = NULL;
 
 #ifdef DEBUG_ALARMS
