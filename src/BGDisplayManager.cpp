@@ -18,8 +18,6 @@ BGDisplayManager_ &BGDisplayManager_::getInstance() {
 // Initialize the global shared instance
 BGDisplayManager_ &bgDisplayManager = bgDisplayManager.getInstance();
 
-Settings settings; // Ensure this exists and is properly initialized
-
 
 void BGDisplayManager_::setup() {
 
