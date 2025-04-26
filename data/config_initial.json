@@ -48,5 +48,5 @@
     "custom_hostname_enable": false,
     "custom_hostname": ""
     "custom_nodatatimer_enable": false,
-    "custom_nodatatimer": "6"
+    "custom_nodatatimer": 6
 }
