@@ -40,6 +40,7 @@
         $("#btn_save").on('click', validateAndSave);
         $('#additional_wifi_enable').on('change', toggleAdditionalWifiSettings);
         $('#custom_hostname_enable').on('change', toggleCustomHostnameSettings);
+        $('#custom_nodatatimer_enable').on('change', toggleCustomNoDataSettings);
 
     }
 
@@ -76,6 +77,11 @@
     function toggleCustomHostnameSettings() {
         const isChecked = $('#custom_hostname_enable').is(':checked');
         $('#custom_hostname_settings').toggleClass('d-none', !isChecked);
+    }
+    
+        function toggleCustomNoDataTimer() {
+        const isChecked = $('#custom_nodatatimer_enable').is(':checked');
+        $('#custom_nodatatimer_settings').toggleClass('d-none', !isChecked);
     }
 
     function tryAlarm(e) {
@@ -472,6 +478,9 @@
         json['custom_hostname_enable'] = $('#custom_hostname_enable').is(':checked');
         json['custom_hostname'] = $('#custom_hostname').val();
 
+         // Custom No Data Timer
+        json['custom_nodatatimer_enable'] = $('#custom_nodatatimer_enable').is(':checked');
+        json['custom_nodatatimer'] = $('#custom_nodatatimer').val();
 
 
         return JSON.stringify(json);
@@ -750,6 +759,12 @@
         $('#custom_hostname_enable').prop('checked', json['custom_hostname_enable']);
         $('#custom_hostname').val(json['custom_hostname']);
         toggleCustomHostnameSettings();
+
+         // Custom No Data Timer
+        $('#custom_nodatatimer_enable').prop('checked', json['custom_nodatatimer_enable']);
+        $('#custom_nodatatimer').val(json['custom_nodatatimer']);
+        toggleCustomNoDataTimer();
+        
     }
 
     function loadAlarmDataFromJson(json, alarmType) {
