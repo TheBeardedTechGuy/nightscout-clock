@@ -79,7 +79,7 @@
         $('#custom_hostname_settings').toggleClass('d-none', !isChecked);
     }
     
-        function toggleCustomNoDataTimer() {
+        function toggleCustomNoDataSettings() {
         const isChecked = $('#custom_nodatatimer_enable').is(':checked');
         $('#custom_nodatatimer_settings').toggleClass('d-none', !isChecked);
     }
@@ -763,7 +763,7 @@
          // Custom No Data Timer
         $('#custom_nodatatimer_enable').prop('checked', json['custom_nodatatimer_enable']);
         $('#custom_nodatatimer').val(json['custom_nodatatimer']);
-        toggleCustomNoDataTimer();
+        toggleCustomNoDataSettings();
         
     }
 
