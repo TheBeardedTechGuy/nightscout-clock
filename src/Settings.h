@@ -45,5 +45,5 @@ class Settings {
     bool custom_hostname_enable;
     String custom_hostname;
     bool custom_nodatatimer_enable;
-    String custom_nodatatimer;
+    int custom_nodatatimer;
 };
