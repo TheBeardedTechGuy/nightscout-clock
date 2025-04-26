@@ -147,6 +147,7 @@ bool SettingsManager_::loadSettingsFromFile() {
     // Custom No Data Timer
     settings.custom_nodatatimer_enable = (*doc)["custom_nodatatimer_enable"].as<bool>();
     settings.custom_nodatatimer = (*doc)["custom_nodatatimer"].as<int>();
+    BG_DATA_OLD_OFFSET_MINUTES = settings.custom_nodatatimer;  // Update global variable
     
     delete doc;
 
