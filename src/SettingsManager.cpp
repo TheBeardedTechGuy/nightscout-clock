@@ -144,6 +144,10 @@ bool SettingsManager_::loadSettingsFromFile() {
     settings.custom_hostname_enable = (*doc)["custom_hostname_enable"].as<bool>();
     settings.custom_hostname = (*doc)["custom_hostname"].as<String>();
 
+    // Custom No Data Timer
+    settings.custom_nodatatimer_enable = (*doc)["custom_nodatatimer_enable"].as<bool>();
+    settings.custom_nodatatimer = (*doc)["custom_nodatatimer"].as<String>();
+    
     delete doc;
 
     this->settings = settings;
@@ -230,6 +234,10 @@ bool SettingsManager_::saveSettingsToFile() {
     // Custom hostname
     (*doc)["custom_hostname_enable"] = settings.custom_hostname_enable;
     (*doc)["custom_hostname"] = settings.custom_hostname;
+
+     // Custom No Data Timer
+     (*doc)["custom_nodatatimer_enable"] = settings.custom_nodatatimer_enable;
+     (*doc)["custom_nodatatimer"] = settings.custom_nodatatimer;
 
     if (trySaveJsonAsSettings(*doc) == false)
         return false;
