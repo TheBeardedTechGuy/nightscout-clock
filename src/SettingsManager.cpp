@@ -146,7 +146,7 @@ bool SettingsManager_::loadSettingsFromFile() {
 
     // Custom No Data Timer
     settings.custom_nodatatimer_enable = (*doc)["custom_nodatatimer_enable"].as<bool>();
-    settings.custom_nodatatimer = (*doc)["custom_nodatatimer"].as<String>();
+    settings.custom_nodatatimer = (*doc)["custom_nodatatimer"].as<int>();
     
     delete doc;
 
