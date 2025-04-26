@@ -1,6 +1,6 @@
 {
     "name": "Nightscout clock",
-    "version": "0.16.0-CustomND",
+    "version": "0.16.1-CustomND",
     "builds": [
         {
             "chipFamily": "ESP32",
