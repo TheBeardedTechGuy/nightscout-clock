@@ -19,6 +19,7 @@
         time_format: /^(12|24)$/,
         email_format: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
         not_empty: /^.{1,}$/,
+        custom_nodatatimer: /^(?:[6-9]|[1-5][0-9]|60)$/,
 
     };
 
@@ -131,6 +132,8 @@
         addFocusOutValidation('clock_timezone');
         addFocusOutValidation('time_format');
 
+        addFocusOutValidation('custom_nodatatimer');
+
         $('#alarm_high_enable').change((e) => { changeAlarmState(e.target) });
         $('#alarm_low_enable').change((e) => { changeAlarmState(e.target) });
         $('#alarm_urgent_low_enable').change((e) => { changeAlarmState(e.target) });
@@ -170,6 +173,7 @@
         allValid &= validate($('#clock_timezone'), patterns.clock_timezone);
         allValid &= validate($('#time_format'), patterns.time_format);
         allValid &= validateAlarms();
+        allValid &= validate($('#custom_nodatatimer'), patterns.custom_nodatatimer);
         return allValid;
     }
 
