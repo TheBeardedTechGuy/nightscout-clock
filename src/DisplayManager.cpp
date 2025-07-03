@@ -98,11 +98,6 @@ if (!SettingsManager.settings.auto_brightness) {
 );
 }
 
-
-    DisplayManager.setBrightness(
-    map(SettingsManager.settings.brightness_level, 0, 10, min_brightness, max_brightness)
-);
-
     DEBUG_PRINTLN(
         "Setting brightness to " + String(displayBrightness) +
         " auto brightness: " + String(SettingsManager.settings.auto_brightness) +
