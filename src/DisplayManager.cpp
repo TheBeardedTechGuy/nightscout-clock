@@ -84,12 +84,18 @@ void DisplayManager_::setup() {
 }
 
 void DisplayManager_::applySettings() {
-    int displayBrightness = 70;
+int min_brightness = MIN_BRIGHTNESS;
+int max_brightness = MAX_BRIGHTNESS;
+    
+if (SettingsManager.settings.bedroom_mode_enable) {
+    min_brightness = BEDROOM_MIN_BRIGHTNESS;
+    max_brightness = BEDROOM_MAX_BRIGHTNESS;
+}
 
-    if (!SettingsManager.settings.auto_brightness) {
-        displayBrightness =
-            map(SettingsManager.settings.brightness_level, 0, 10, MIN_BRIGHTNESS, MAX_BRIGHTNESS);
-    }
+if (!SettingsManager.settings.auto_brightness) {
+    displayBrightness = map(SettingsManager.settings.brightness_level, 0, 10, min_brightness, max_brightness);
+    DisplayManager.setBrightness(displayBrightness);
+}
 
     DEBUG_PRINTLN(
         "Setting brightness to " + String(displayBrightness) +
