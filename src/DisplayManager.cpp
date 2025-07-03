@@ -102,7 +102,10 @@ if (!SettingsManager.settings.auto_brightness) {
         "Setting brightness to " + String(displayBrightness) +
         " auto brightness: " + String(SettingsManager.settings.auto_brightness) +
         " and brightness level: " + String(SettingsManager.settings.brightness_level));
-    DisplayManager.setBrightness(displayBrightness);
+
+    DisplayManager.setBrightness(
+    map(SettingsManager.settings.brightness_level, 0, 10, min_brightness, max_brightness)
+);
 }
 
 void DisplayManager_::tick() {}
