@@ -163,6 +163,9 @@ bool SettingsManager_::loadSettingsFromFile() {
         }
     }
 
+    // Bedroom Mode
+    settings.bedroom_mode_enable = (*doc)["bedroom_mode_enable"].as<bool>();
+    
     delete doc;
 
     this->settings = settings;
@@ -253,6 +256,9 @@ bool SettingsManager_::saveSettingsToFile() {
     // Custom No Data Timer
     (*doc)["custom_nodatatimer_enable"] = settings.custom_nodatatimer_enable;
     (*doc)["custom_nodatatimer"] = settings.custom_nodatatimer;
+
+    // Bedroom Mode
+    (*doc)["bedroom_mode_enable"] = settings.bedroom_mode_enable;
 
     if (trySaveJsonAsSettings(*doc) == false)
         return false;
