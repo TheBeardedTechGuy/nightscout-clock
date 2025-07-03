@@ -486,6 +486,9 @@
         json['custom_nodatatimer_enable'] = $('#custom_nodatatimer_enable').is(':checked');
         json['custom_nodatatimer'] = $('#custom_nodatatimer').val();
 
+        //Bedroom Mode
+        json['bedroom_mode_enable'] = $('#bedroom_mode_enable').is(':checked');
+
         return JSON.stringify(json);
     }
 
@@ -767,6 +770,9 @@
         $('#custom_nodatatimer_enable').prop('checked', json['custom_nodatatimer_enable']);
         $('#custom_nodatatimer').val(json['custom_nodatatimer']);
         toggleCustomNoDataSettings();
+
+        //Bedroom Mode
+        $('#bedroom_mode_enable').prop('checked', json['bedroom_mode_enable']);
         
     }
 
