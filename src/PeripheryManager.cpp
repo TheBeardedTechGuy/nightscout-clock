@@ -151,8 +151,17 @@ void PeripheryManager_::tick() {
         CURRENT_LUX = (roundf(photocell.getSmoothedLux() * 1000) / 1000);
         if (SettingsManager.settings.auto_brightness && !MATRIX_OFF) {
             brightnessPercent = sampleAverage / 4095.0 * 100.0;
-            int brightness = map(brightnessPercent, 0, 100, MIN_BRIGHTNESS, MAX_BRIGHTNESS);
-            DisplayManager.setBrightness(brightness);
+
+            int min_brightness = MIN_BRIGHTNESS;
+            int max_brightness = MAX_BRIGHTNESS;
+            
+            if (SettingsManager.settings.bedroom_mode_enable) {
+                min_brightness = BEDROOM_MIN_BRIGHTNESS;
+                max_brightness = BEDROOM_MAX_BRIGHTNESS;
+}
+            
+int brightness = map(brightnessPercent, 0, 100, min_brightness, max_brightness);
+DisplayManager.setBrightness(brightness);
         }
     }
 }
