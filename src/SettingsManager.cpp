@@ -165,6 +165,7 @@ bool SettingsManager_::loadSettingsFromFile() {
 
     // Bedroom Mode
     settings.bedroom_mode_enable = (*doc)["bedroom_mode_enable"].as<bool>();
+    settings.brighter_mode_enable = (*doc)["brighter_mode_enable"].as<bool>();
     
     delete doc;
 
@@ -259,6 +260,7 @@ bool SettingsManager_::saveSettingsToFile() {
 
     // Bedroom Mode
     (*doc)["bedroom_mode_enable"] = settings.bedroom_mode_enable;
+    (*doc)["brighter_mode_enable"] = settings.brighter_mode_enable;
 
     if (trySaveJsonAsSettings(*doc) == false)
         return false;
