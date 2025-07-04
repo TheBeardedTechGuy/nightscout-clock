@@ -43,19 +43,6 @@
         $('#custom_hostname_enable').on('change', toggleCustomHostnameSettings);
         $('#custom_nodatatimer_enable').on('change', toggleCustomNoDataSettings);
 
-        $('#bedroom_mode_enable').on('change', function() {
-        if ($(this).is(':checked') && $('#brighter_mode_enable').is(':checked')) {
-            $('#bedroom_mode_enable').prop('checked', false);
-            $('#brighter_mode_enable').prop('checked', false);
-        }
-    });
-        $('#brighter_mode_enable').on('change', function() {
-        if ($(this).is(':checked') && $('#bedroom_mode_enable').is(':checked')) {
-            $('#bedroom_mode_enable').prop('checked', false);
-            $('#brighter_mode_enable').prop('checked', false);
-        }
-    });
-
         $('#bedroom_mode_enable, #brighter_mode_enable').on('change', function() {
         if ($('#bedroom_mode_enable').is(':checked') && $('#brighter_mode_enable').is(':checked')) {
             $('#bedroom_mode_enable').prop('checked', false);
