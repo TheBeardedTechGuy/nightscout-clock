@@ -92,6 +92,11 @@ if (SettingsManager.settings.bedroom_mode_enable) {
     max_brightness = BEDROOM_MAX_BRIGHTNESS;
 }
 
+if (SettingsManager.settings.brighter_mode_enable) {
+    min_brightness = BRIGHTER_MIN_BRIGHTNESS;
+    max_brightness = BRIGHTER_MAX_BRIGHTNESS;
+}
+
 if (!SettingsManager.settings.auto_brightness) {
     DisplayManager.setBrightness(
     map(SettingsManager.settings.brightness_level, 0, 10, min_brightness, max_brightness)
