@@ -488,6 +488,7 @@
 
         //Bedroom Mode
         json['bedroom_mode_enable'] = $('#bedroom_mode_enable').is(':checked');
+        json['brighter_mode_enable'] = $('#brighter_mode_enable').is(':checked');
 
         return JSON.stringify(json);
     }
@@ -773,6 +774,7 @@
 
         //Bedroom Mode
         $('#bedroom_mode_enable').prop('checked', json['bedroom_mode_enable']);
+        $('#brighter_mode_enable').prop('checked', json['brighter_mode_enable']);
         
     }
 
