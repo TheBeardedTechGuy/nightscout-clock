@@ -158,12 +158,17 @@ void BGDisplayManager_::drawTimerBlocks(
 
     uint16_t color = COLOR_DARK_GREEN;
     if (lastReading.getSecondsAgo() >= 60 * SettingsManager.settings.bg_data_too_old_threshold_minutes) {
-        color = COLOR_GRAY;  // old data
+    	if (SettingsManager.settings.dimmer_mode_enable) {
+            color = COLOR_DIMMER_TIMER_BLOCK_OLD;  // dimmer profile old data
+    	}
+    	else {
+            	color = COLOR_GRAY;  // old data
+    	}
     } else if (lastReading.getSecondsAgo() >= (MAX_BLOXCS + 1) * 60) {
         color = COLOR_DARK_ORANGE;  // warning data
     } else if (SettingsManager.settings.dimmer_mode_enable) {
         color = COLOR_DIMMER_TIMER_BLOCK;  // dimmer profile
-}
+    }
     
 #ifdef DEBUG_DISPLAY
     DEBUG_PRINTF(
