@@ -12,8 +12,11 @@ void BGDisplayFaceValueAndDiff::showReadings(
 
     if (SettingsManager.settings.bg_units == BG_UNIT::MMOLL && lastReading.sgv >= 180) {
         showReading(lastReading, 14, 6, TEXT_ALIGNMENT::RIGHT, FONT_TYPE::MEDIUM, dataIsOld);
-    } else {
-        showReading(lastReading, 13, 6, TEXT_ALIGNMENT::RIGHT, FONT_TYPE::MEDIUM, dataIsOld);
+        if (SettingsManager.settings.dimmer_mode_enable) {
+            DisplayManager.setTextColor(DIMMER_BG_COLOR_OLD);
+        } else {
+            DisplayManager.setTextColor(BG_COLOR_OLD);
+        }
     }
 
     showTrendArrow(lastReading, 13, 1);
