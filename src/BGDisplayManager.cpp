@@ -172,7 +172,7 @@ void BGDisplayManager_::drawTimerBlocks(
         color = COLOR_DARK_ORANGE;  // warning data
     	}
     } else if (SettingsManager.settings.dimmer_mode_enable) {
-        color = COLOR_DIMMER_TIMER_BLOCK;  // dimmer profile
+        color = COLOR_DIMMER_TIMER_BLOCK_WARNING;  // dimmer profile
     }
 
 #ifdef DEBUG_DISPLAY
