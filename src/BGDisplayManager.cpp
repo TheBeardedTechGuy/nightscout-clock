@@ -165,11 +165,16 @@ void BGDisplayManager_::drawTimerBlocks(
             	color = COLOR_GRAY;  // old data
     	}
     } else if (lastReading.getSecondsAgo() >= (MAX_BLOXCS + 1) * 60) {
+    	if (SettingsManager.settings.dimmer_mode_enable) {
+            color = COLOR_DIMMER_TIMER_BLOCK_WARNING;  // dimmer profile warning data
+    	}
+    	else {
         color = COLOR_DARK_ORANGE;  // warning data
+    	}
     } else if (SettingsManager.settings.dimmer_mode_enable) {
         color = COLOR_DIMMER_TIMER_BLOCK;  // dimmer profile
     }
-    
+
 #ifdef DEBUG_DISPLAY
     DEBUG_PRINTF(
         "Drawing %d blocks of size %d at position (%d, %d) with color %04X", blocksCount, blockSize,
