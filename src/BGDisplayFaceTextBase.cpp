@@ -12,7 +12,11 @@ void BGDisplayFaceTextBase::showReading(
     if (!isOld) {
         SetDisplayColorByBGValue(reading);
     } else {
-        DisplayManager.setTextColor(BG_COLOR_OLD);
+        if (SettingsManager.settings.dimmer_mode_enable) {
+            DisplayManager.setTextColor(COLOR_WHITE);
+        } else {
+            DisplayManager.setTextColor(BG_COLOR_OLD);
+        }
     }
 
     DisplayManager.setFont(font);
