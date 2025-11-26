@@ -1,14 +1,14 @@
 # Nightscout Clock
 
-![Nihtscout clock logo](https://github.com/ktomy/nightscout-clock/assets/1446257/1198c06d-b017-409d-aca3-2bca63581ecb)
+![Nightscout clock logo](https://github.com/ktomy/nightscout-clock/assets/1446257/1198c06d-b017-409d-aca3-2bca63581ecb)
 
-### Current version: 0.23.0
+### Current version: 0.24.2
 
 ![Build and Release](https://github.com/ktomy/nightscout-clock/actions/workflows/build_release.yml/badge.svg)
 
 _Nightscout Clock (or NSClock) is an open-source product aimed to help caregivers of people with type 1 diabetes have more piece of mind by being able to better glance at their loved onve blood glucose values._
 
-![resized_IMG_0217](https://github.com/user-attachments/assets/9c5d810a-76c0-414b-8d93-d46a6afa8bf6)
+![Photo of the NSClock](https://github.com/user-attachments/assets/9c5d810a-76c0-414b-8d93-d46a6afa8bf6)
 
 ## Here is what it can do
 
@@ -18,9 +18,15 @@ _Nightscout Clock (or NSClock) is an open-source product aimed to help caregiver
 - 10 minutes setup through web browser
 - Configurable low/high limits
 - Audible alarms in case the blood sugar is too low or too high
-- Automatic brightness adjuistment
+- Automatic brightness adjustment
 - Notifies of stall data
 - ...and more
+
+### YouTube review
+
+[![YouTube video](https://img.youtube.com/vi/7GmDflLxqLs/0.jpg)](https://www.youtube.com/watch?v=7GmDflLxqLs)
+
+Thanks [@CallumMcK](https://github.com/CallumMcK)
 
 ## How to install
 
@@ -33,6 +39,12 @@ _Nightscout Clock (or NSClock) is an open-source product aimed to help caregiver
 7. Once the clock installed, take out your phone and join `nsclock` wi-fi network. Then go to `http://192.168.4.1/`
 8. Set up your device, provide the Wi-Fi network details, your Dexcom or Nightscout credentials, glucose warning limits and other parameters
 9. You're all set, enjoy!
+
+## How to update
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/7mFZJ7_EFN4/0.jpg)](https://www.youtube.com/watch?v=7mFZJ7_EFN4)
+
+Thanks [@CallumMcK](https://github.com/CallumMcK)
 
 ## More information for people who needs it
 
@@ -62,10 +74,10 @@ Nightscout CLock is a custom firmware for Ulanzi TC001. It can also run (with mi
   - Ability to set custom hostname in in case you have multiple NSClocks on the same network
 - Simple glucose value display with trend arrow
 - Changing color based on limits
-- Nightscout data source, the clock gett units type and value boundaries from Nightscout
+- Nightscout data source, the clock gett units type and value boundaries from Nightscout (see [how to](https://youtu.be/GGiep2gdx_o) set up using [Nightscout.pro](https://www.nightscout.pro/) as data source)
 - [Juggluco](https://www.juggluco.nl/) data source (support for HTTP Nightscout endpoints)
-- [Improv WiFi](https://github.com/improv-wifi) compatibility (setting up WiFi during the installation)
-- [Gluroo](https://gluroo.com/) data source (API_SECRET within the URL parameters)
+- [Improve WiFi](https://github.com/improv-wifi) compatibility (setting up WiFi during the installation)
+- [Gluroo](https://gluroo.com/) data source (API_SECRET within the URL parameters) (see how to setup [video](https://youtu.be/unG-l6XXWxw))
 - Dexcom Share data source
 - LibreLinkUp (libreview) data source
 - Brightness adjustment
@@ -94,13 +106,24 @@ Nightscout CLock is a custom firmware for Ulanzi TC001. It can also run (with mi
 - Add more clock faces
   - Battery, humidity and temperature
 - Smooth color change (rainbow) based on the value and boundaries
-- Create installation/configuration video
-- Create a guide for setting up the development environment and code walkthrough for contributions
 - Add more data sources
   - Medtronic
   - ...more... (if you are the author of a CGM data collecting app/service nad you want your data to be displayed on the Nightscout Clock, please contact me)
 
 ## Changes
+
+### 0.24.2
+
+- Increased version presented to LibreLinkUp servers, closing [#88](https://github.com/ktomy/nightscout-clock/issues/88)
+
+### 0.24
+
+- Added "dark rooms" brightness mode and changed curve for the manual brightness. Thanks [@unxmaal](https://github.com/unxmaal) for [#67](https://github.com/ktomy/nightscout-clock/pull/67)
+
+### 0.23.1
+
+- Fixed trend arrow display on the Big Text clockface when brightness is not in auto mode. [#47](https://github.com/ktomy/nightscout-clock/issues/47)
+- Adjusted version display on start-up
 
 ### 0.23
 
